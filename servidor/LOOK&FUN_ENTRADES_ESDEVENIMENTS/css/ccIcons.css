@@ -1,0 +1,14 @@
+@media screen {
+@font-face {
+font-family: 'CC-ICONS';
+font-style: normal;
+font-weight: normal;
+src: url('../api/resources/ttf/cc-icons.ttf') format('truetype');
+}
+
+span.cc {
+font-family: 'CC-ICONS';
+font-size: 30px;
+color: #ABB3AC;
+}
+}

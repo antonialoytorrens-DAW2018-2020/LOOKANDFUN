@@ -1,0 +1,264 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .amaga {
+            display: none;
+            overflow: hidden;
+        }
+        .dreta {
+            float:right;
+        }
+        fieldset {
+            color: lightsteelblue;
+            border: 2px solid lightsteelblue;
+            padding:16px;
+        }
+        legend {
+            border-bottom:none;
+            width: inherit;
+        }
+        #contFormulari05, #contFormulari06 {
+            color: black;
+        }
+    </style>
+</head>
+<script>
+    function valida() {
+        return true;
+    }
+    function resetNode(node) {
+        //Si el node te fills
+        if(node.hasChildNodes()) {
+            //rebenta el primer fill mentres tengui un fill
+            while (node.firstChild) {
+                node.removeChild(node.firstChild);
+            }
+        }
+    }
+    function creaBtn(tipusBoto, idBoto, txtBoto) {
+        const bt = document.createElement('BUTTON');
+        bt.setAttribute('type',tipusBoto);
+        bt.id = idBoto;
+        const txtBt = document.createTextNode(txtBoto);
+        bt.appendChild(txtBt);
+        return bt;
+    }
+    //funcio generica, crea un P, i a dedins in input(variable) type='variable' amb txtNode(variable).
+    function creaPar(tipusNode, idInput, tipusInput, txtNode) {
+        const par = document.createElement('P');
+        const creaInput = document.createElement(tipusNode);
+        creaInput.setAttribute('type', tipusInput);
+        creaInput.id = idInput;
+        const creaLabel = document.createElement('LABEL');
+        const txtLabel = document.createTextNode(txtNode);
+        creaLabel.appendChild(txtLabel);
+        par.appendChild(creaLabel);
+        par.appendChild(creaInput);
+        return par;
+    };
+
+
+    window.onload = function() {
+        //amaga sense entrades by Default
+            $('#entradesFalse').parent().nextAll().hide(500);
+
+    const btCrea = document.getElementById('crearEvent');
+    const contF5 = document.getElementById('contFormulari05');
+    const contF6 = document.getElementById('contFormulari06');
+    const formulari05 = document.getElementById('f05');
+    const formulari06 = document.getElementById('f06');
+
+
+    btCrea.addEventListener('click', function(e) {
+        formulari05.appendChild(creaPar('input','inputTextNom','text','Nom event: '));
+        //Ficar un select amb les categories passar un array
+        formulari05.appendChild(creaPar('input','inputTextTags','text','Afageix tags: '));
+        //Faltaria un boto per afegir i llevar els tags;
+        formulari05.appendChild(creaPar('input','inputRadioPublic','radio','Públic'));
+        formulari05.appendChild(creaPar('input','inputRadioPrivat','radio','Privat'));
+
+        formulari05.appendChild(creaPar('input','inputTextOrganitzadors','text','Afageix organitzadors: '));
+        //a la llista sortim nosaltres per defecte, tot i que seria un search amb autocomplete
+
+        formulari05.appendChild(creaPar('input','inputDateIniciEvent','date','Data inici: '));
+        formulari05.appendChild(creaPar('input','inputDateIniciEvent','date','Data final: '));
+
+        formulari05.appendChild(creaPar('input','inputTextAforo','text','Aforament disponible: '));
+
+        //localitzacio, son 3 selects les passam per array.
+
+        formulari05.appendChild(creaPar('input','inputFilePoster','file','Cartell'));
+
+        formulari05.appendChild(creaBtn('reset','cancelaEvent', 'Cancel·la'));
+        formulari05.appendChild(creaBtn('submit','guardaEvent', 'Guarda Canvis i Continua'));
+
+        $('#contFormulari05').show(600);
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#guardaEvent").offset().top
+        }, 1000);
+    });
+    formulari05.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (valida) {
+            formulari05.removeChild(document.getElementById('cancelaEvent'));
+            formulari05.removeChild(document.getElementById('guardaEvent'));
+
+            formulari06.appendChild(creaPar('input','inputRadioEntradesFalse','radio','Sense entrades'));
+            //afegir algun setAtribute per aqui rollo selected
+            formulari06.appendChild(creaPar('input','inputRadioEntradesTrue','radio','Amb Entrades'));
+
+            //
+
+            formulari06.appendChild(creaPar('input','inputTextPreu','text','Preu €'));
+            //formulari06.appendChild(creaPar('input','input'))
+
+            formulari06.appendChild(creaBtn('reset','cancelaEntrades', 'Cancel·la'));
+            formulari06.appendChild(creaBtn('submit','guardaEntrades', 'Guarda Canvis i Continua'));
+            $('#contFormulari06').show(600);
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $('#guardaEntrades').offset().top
+            }, 1000); //1000 hauria de ser el Height de l'element
+        }
+    });
+    formulari06.addEventListener('submit', function(e) {
+        e.preventDefault();
+        resetNode(contF5);
+        resetNode(contF6);
+        const parResultat = document.getElementById('resultat');
+        let str = 'Event creat i Publicat';
+        const txtParResultat = document.createTextNode(str);
+        parResultat.appendChild(txtParResultat);
+    });
+    //Amaga els divs quan cancelam
+    formulari05.addEventListener('reset', function() {
+        $('#contFormulari06').hide(1000);
+        $('#contFormulari05').hide(1000);
+    });
+    formulari06.addEventListener('reset', function() {
+        $('#contFormulari06').hide(1000);
+    });
+
+    //Display info de Entrades (if)
+    $('#entradesFalse').change(function() {
+        $(this).parent().nextAll().hide(500);
+        $('#guardaEntrades').show();
+        $('#cancelaEntrades').show();
+
+    });
+    $('#entradesTrue').change(function() {
+       $(this).parent().nextAll().show(500);
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(this).offset().top
+        }, 1000); //1000 hauria de ser el Height de l'element
+    });
+    //Display Mode Butaques
+    $('#modButaques').change(function() {
+        $(this).nextAll().toggle('amaga');
+    })
+}
+
+</script>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <!--<a class="navbar-brand" href="#"></a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+        <nav class="navbar-nav">
+            <a class="nav-link" href="#">LookandFun</a>
+            <a class="nav-link" href="#">Tenc un Codi</a>
+            <a class="nav-link" href="#">Inici Sessió</a>
+            <a class="nav-link active" href="#">Portal Organitzadors</a>
+        </nav>
+    </div>
+</nav>
+<div>
+    <p>Benvingut $usuari</p>
+    <fieldset>
+        <legend>Crea Events</legend>
+    <button type="button" id="crearEvent" class="dreta btn btn-primary" >Crear Event</button>
+        <div id="contFormulari05" class="amaga">
+            <h1>Crea un Esdeveniment</h1>
+            <form id="f05">
+                </form>
+        </div>
+        <div id="contFormulari06" class="amaga">
+            <h1>Dades Entrades</h1>
+            <form id="f06" action="" method="get">
+
+            </form>
+        </div>
+    </fieldset>
+</div>
+<p id="resultat"></p>
+<div id="contPanellEvents">
+</div>
+</body>
+</html>
+
+<!--
+<p><label for="nom_text">Nom de l'Esdeveniment</label>
+<input type="text" id="nom_text" placeholder="Posa un nom a l'esdeveniment"></p>
+                <p><label for="categoria_select">Categoria</label>
+                    <select id="categoria_select">
+                        <option value="concert">Concert</option>
+                        <option value="festa">Festa</option>
+                        <option value="reunio">Reunió</option>
+                        <option value="concurs">Concurs</option>
+                    </select></p>
+                <p><label for="tags_text">Tags</label><input type="text" id="tags_text" placeholder="Posa uns tags"></p>
+                <p><label for="tipus_1">Tipus</label><input type="radio" name="tipus_radio" id="tipus_1">Públic<input type="radio" name="tipus_radio" id="tipus_2">Privat</p>
+                <p><label for="organitzador_text">Organitzadors</label><input type="text" id="organitzador_text" placeholder="Posa l'organitzador/s..."></p>
+                <p><label for="data-inici_date">Data Inici</label><input type="date" id="data-inici_date"></p>
+                <p><label for="data-final_date">Data Final</label><input type="date" id="data-final_date"></p>
+                <p><label for="aforament">Aforament (Opcional)</label><input type="number" name="aforament" id="aforament"></p>
+                <p>Localització</p>
+<p><label for="comunitat_select">Comunitat Autònoma</label>
+    <select id="comunitat_select">
+        <option value="comunitat_balears">Illes Balears</option>
+    </select></p>
+<p><label for="provincia_select">Província</label>
+    <select id="provincia_select">
+        <option value="provincia_balears">Illes Balears</option>
+    </select></p>
+<p><label for="localitat_select">Localitat</label>
+    <select id="localitat_select">
+        <option value="inca">Inca</option>
+        <option value="sa-pobla">Sa Pobla</option>
+        <option value="alcudia">Alcúdia</option>
+        <option value="binissalem">Binissalem</option>
+    </select></p>
+<p><label for="cartell_file">Cartell (Opcional)</label><input type="file" id="cartell_file" value="Puja un fitxer per al cartell..."></p>
+<p><label for="multimedia_file">Multimedia (Opcional)</label><input type="file" id="multimedia_file" value="Fitxers addicionals multimèdia..." multiple></p>
+
+
+
+<p><label for="entradesFalse">Entrades</label>
+                    <input type="radio" name="entrada_radio" id="entradesFalse" checked>Sense Entrades
+                    <input type="radio" name="entrada_radio" id="entradesTrue">Sí</p>
+                <p><label for="tipusPreuPagament">Preu</label>
+                    <input type="radio" name="tipusPreu" id="tipusPreuPagament" value="pagament">
+                    <input type="text" name="preu" disabled>€
+                    <input type="radio" name="tipusPreu" id="tipusPreuGratuit" value="gratuit">Gratuit</p>
+                <p><label for="numEntrades">Nº Entrades</label>
+                    <input type="number" name="numEntrades" id="numEntrades"></p>
+                <div><input type="checkbox" name="modButaques" id="modButaques">Mode butaca
+                    <p id="gl" class="amaga"><input type="number" name="filesButaques" id="filesButaques">Nº de files</p>
+                    <p class="amaga"><input type="number" name="numButaquesPerFila" id="numButaquesPerFila">Nº de butaques per fila</p>
+                </div>
+                <p><label for="iniVenta">Data inici de Ventes</label>
+                    <input type="date" name="iniVenta" id="iniVenta"></p>
+                <p><label for="iniVenta">Data fi de Ventes</label>
+                    <input type="date" name="fiVenta" id="fiVenta"></p>
+                <p><label for="idF">NIF/CIF: </label>
+                    <input type="text" name="idF" id="idF"><br>
+                    <span>Et cobrarem el 0.8% de totes les entrades que venguis a través de la plataforma, introdueix el teu Compte bancari per cobrar a traves de TPV Virtual</span>
+                    <label for="compteBanc">Compte Bancari</label>
+                    <input type="text" name="compteBanc" id="compteBanc"><br>
+
+
+-->

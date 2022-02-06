@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TipusPla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="formularis.css">
+    <script type="text/javascript" src="validacions.js">
+        function onSubmitPla() {
+            return (document.getElementById('free').checked || document.getElementById('vip').checked);
+        }
+    </script>
+</head>
+<body>
+    <section id="pla">
+        <div class="titol">Selecciona el tipus de pla</div>
+        <div style="text-align: center;">
+            <label class="radio-container">Free
+                <input type="radio" name="radio" id="free" checked>
+                <span class="checkmark"></span></label>
+            <label class="radio-container">VIP
+                <input type="radio" name="radio" id="vi[">
+                <span class="checkmark"></span></label>
+        </div>
+    </section>
+    <hr />
+    <hr />
+    <section class="grid-1">
+        <div class="blau">
+            <div class="titol">FREE</div>
+            <div>
+                <ul>
+                    <li>Crea esdeveniments sense ànim de lucre.</li>
+                    <li>Es permet pujar imatges a la creació de l'esdeveniment.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="blaufort">
+            <div class="titol">VIP</div>
+            <div>
+                <ul>
+                    <li>Crea esdeveniments privats que només rebin els teus convidats.</li>
+                    <li>Menció a xarxes socials sobre l'esdeveniment.</li>
+                    <li>Distintiu privilegiat als esdeveniments creats.</li>
+                    <li>Mostra l'esdeveniment dins la secció de recomanats.</li>
+                    <li>Es permet pujar imatges, vídeos i altre multimèdia a la creació de l'esdeveniment.</li>
+                    <li>Podràs cobrar entrada pel teu esdeveniment a través de la nostra app.</li>
+                    <li>Rep i envia notificacions en temps real als teus convidats.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <a href="index.php">Torna a l'index</a>
+</body>
+
+</html>

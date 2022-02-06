@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Paytone+One|Oswald|Raleway|Roboto|Muli|Rubik|Nunito|Signika');
+body {
+  margin: 0;
+  font-family: Helvetica;
+  /*color: #e7dfdd;*/
+  background-color: black;
+}
+
+/*form01*/
+input[type="text"], input[type="search"], select {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #0e0b16;
+    font-weight: bold;
+}
+/*logo*/
+  svg {
+   xmlns:"http://www.w3.org/2000/svg";
+   stroke-linecap: round;
+   background-color: none;
+   width: 170px;
+   height: 40px;
+   margin: 0;
+   margin-top: -10px;
+   margin-bottom: -15px;
+ }
+ 
+.filtre {
+  -webkit-filter:  drop-shadow( 2px 2px 2px black );
+   filter:  drop-shadow( 2px 2px 2px black );
+}
+
+/*form 02*/
+form {
+  margin-top: 10px;
+}
+.center {
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  z-index: -5;
+  color: #2f66a9;
+}
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .center {
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    background-color: rgba(255, 255, 255, 0.2);  
+  }
+  .warning {
+    display: none;
+  }
+}
+/*Footer*/
+.footer {
+   margin: 0 auto;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}
+/*Form responsive*/
+.form-inline {  
+  display: -webkit-box;  
+  display: -ms-flexbox;  
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin-left: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.form-inline input, select {
+  vertical-align: middle;
+  margin: 15px 10px 5px 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 1000px) {
+
+  .form-inline input, select {
+    margin: 10px;
+  }
+  .form-inline {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+}
+/*BG*/
+.cos {
+  background-color: black;
+  background-image: url("mm/bgmusica.jpg");
+  -webkit-animation-name: zoombucle;
+          animation-name: zoombucle;
+      -webkit-animation-duration: 3s;
+              animation-duration: 3s;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-timing-function: ease-in-out;
+              animation-timing-function: ease-in-out;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@-webkit-keyframes zoombucle {
+    0% {background-size: 99.5% 99.5%;}
+    25% {background-size: 100% 99.5%;}
+    50% {background-size: 100% 100%;}
+    75% {background-size: 99.5% 100%;}
+    100% {background-size: 99.5% 99.5%;}
+    }
+@keyframes zoombucle {
+    0% {background-size: 99.5% 99.5%;}
+    25% {background-size: 100% 99.5%;}
+    50% {background-size: 100% 100%;}
+    75% {background-size: 99.5% 100%;}
+    100% {background-size: 99.5% 99.5%;}
+    }
+/*RESULTATS*/
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.flex-container > table {
+  width: 339px;
+  margin: 20px;
+}
+.flex-container > ul {
+  width: 300px;
+}
+ul {
+  list-style-type: none;
+}
+/* Resultats */
+#taula {
+  font-family: Helvetica;
+  color: #0e0216;
+}
+img:hover {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: scale(1.02);
+      -ms-transform: scale(1.02);
+          transform: scale(1.02);
+}
+#taula img {
+  width: 102%;
+  margin-left: -3px;
+  margin-top: -3px;
+}
+#taula table {
+  background-color: white;
+  opacity: 0.95;
+  color: #0e0b16;
+}
+.td2 {
+  border-left: 20px solid white;
+  border-top: 10px solid white;  
+}
+.td3 {
+  border-left: 20px solid white;
+  border-top: 10px solid white;  
+}
+.td4 {
+  border-left: 20px solid white;
+  border-top: 10px solid white;  
+}
+/*button compra entrades*/
+.comprar {
+  margin-bottom: 20px;
+  margin-left: 40px;
+  background-color: #0e0b16;
+  border: 2px #0e0b16 solid;
+  border-radius: 16px;
+  padding: 8px 16px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+       -o-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+.comprar:hover {
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  border: 2px white solid;
+  -webkit-box-shadow: 0 0 0 5px hsl(0, 0%, 0%);
+          box-shadow: 0 0 0 5px hsl(0, 0%, 0%);;
+  color: white;
+}
+/*Form 04*/
+input[type="search"], input[type="text"], select {
+  border-radius: 16px;
+  outline: none;
+  border: 2px solid #398ad7;
+}
+input[type="search"]:focus, input[type="text"]:focus, select:focus  {
+  background-color: #e9fbff;
+} 
+footer {
+  height: 200px;
+}
+footer a, a:hover {
+  color: #e7dfdd;
+  text-decoration: none;
+}
+.fa{
+    -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+            transform: scale(1.5);
+    margin-right: 10px;
+}
+/*daterangepicker*/
+button {
+  background-color: #5ab9ea;
+  border: 2px solid #5ab9ea;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+table {
+  color: #0e0b16;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="formularis.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/action_page.php">
+            <div class="row">
+                <div class="col-25">
+                    <label for="usr">Usuari</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="usuari" name="usuari" pattern="[A-Z]+[a-z]+ [A-Z]+[a-z]+" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <!--Minimum eight characters, at least one letter and one number-->
+                    <input type="password" id="password" name="password" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" required>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <input type="reset" id="reset" value="Restableix">
+            </div>
+            <hr />
+            <div class="row">
+                <input type="submit" value="Registrar-se">
+            </div>
+        </form>
+    </div>
+    <a href="index.php">Torna a l'index</a>
+</body>
+
+</html>

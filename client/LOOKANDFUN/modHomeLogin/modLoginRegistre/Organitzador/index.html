@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registre Organitzadors</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../../stylesHome/homeEstilBasic.css">
+    <link rel="stylesheet" href="../../stylesModLogin/loginCompartits.css">
+    <script src="../../scriptsModLogin/loginValidacionsCompartides.js"></script>
+    <script>
+        window.onload = function () {
+            document.getElementById("f02").onsubmit = function (e) {
+                let nomEmpresa = validarNom(document.getElementById("nomEmp").value);
+                let nomRepresentant = validarNom(document.getElementById("nomRep").value);
+                let dataNaixement = validarData(document.getElementById("dNaix").value);
+                let contrasenya = checkPassword(document.getElementById("pw").value, document.getElementById("pwCheck").value);
+                let telefon = validarTelefon(document.getElementById("tlfn").value);
+                let email = validarEmail(document.getElementById("email").value);
+                let checkbox = validarCheckbox(document.getElementById("terms"));
+                /*alert("validar empresa: " + nomEmpresa);
+                alert("validar representant: " + nomRepresentant);
+                alert("contrasenya: " + contrasenya);
+                alert("data naix: " + dataNaixement);
+                alert("telefon: " + telefon);
+                alert("email: " + email);
+                alert("checkbox: " + checkbox);*/
+
+                if (nomEmpresa === true && nomRepresentant === true && dataNaixement === true && contrasenya === true && telefon === true && email === true && checkbox === true) {
+                    alert("Validació correcta");
+                } else {
+                    alert("Validació incorrecta");
+                }
+            }
+
+            document.getElementById("cancel").addEventListener("click", function () {
+                window.location.replace("../../../index.html");
+            });
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="contCore">
+        <fieldset>
+            <legend>Registre Organitzadors</legend>
+            <form id="f02" action="index.html" method="get">
+                <label for="nomEmp">Nom Empresa:</label>
+                <input class="form-control" type="text" name="nomEmp" id="nomEmp">
+                <label for="nomRep">Nom Representant:</label>
+                <input class="form-control" type="text" name="nomRep" id="nomRep">
+                <label for="pw">Contrasenya:</label>
+                <input class="form-control" type="password" name="pw" id="pw">
+                <label for="pwCheck">Confirma Contrasenya:</label>
+                <input class="form-control" type="password" name="pwCheck" id="pwCheck">
+                <label for="dNaix">Data de Naixement (Representant):</label>
+                <input class="form-control" type="date" name="dNaix" id="dNaix">
+                <label for="tlfn">Telefon de Contacte:</label>
+                <input class="form-control" type="text" name="tlfn" id="tlfn">
+                <label for="email">Correu Electrònic:</label>
+                <input class="form-control" type="text" name="email" id="email">
+                <input type="checkbox" name="terms" id="terms"> Accepta els termes i condicions del servei...<br>
+                <input type="checkbox" name="notis" id="notis"> Desitja rebre notificacions sobre... Desitja unir-se al
+                nostre newsletter<br>
+                <button class="btn btn-primary" type="button" id="cancel" value="cancel">Cancel·lar</button>
+                <button class="btn btn-primary" type="submit" id="envia" value="envia" form="f02">Confirmar</button>
+            </form>
+        </fieldset>
+    </div>
+    <a href="../../modLogin.html">Torna a l'index</a>
+</body>
+
+</html>

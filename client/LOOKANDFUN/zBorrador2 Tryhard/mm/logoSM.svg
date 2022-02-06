@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  style=" stroke-linecap: round;
+   background-color: #FF1844; filter: drop-shadow( 2px 4px 2px black ); ">
+         <defs>
+    <style type="text/css">@import url('https://fonts.googleapis.com/css?family=Lato|Paytone+One|Oswald|Raleway|Roboto|Muli|Rubik|Nunito|Signika');</style>
+</defs>
+    	<circle cx="75" cy="75" r="50" stroke="#FFFFFF" stroke-width="10" fill="none" />
+      <line x1="112.5" y1="112.5" x2="150" y2="150" stroke="#FFFFFF" stroke-width="10"/>
+      <line x1="127.5" y1="127.5" x2="157.5" y2="157.5" stroke="#FFFFFF" stroke-width="25"/>
+      <!-- x,y curva entera(punt origen); x,y punt q estira, x,y punt final-->
+      
+      <path d="M 60 105 q 37.5 -7.5 46.25 -43.75" stroke="#FFFFFF" stroke-width="1.25" fill="none" />
+      <path d="M 60 105 q 52.5 7.5 46.25 -43.75" stroke="#FFFFFF" stroke-width="1.25" fill="none" /> 
+
+      <path d="M 60 105 q 37.5 -7.5 46.25 -43.75, q 5 52.5 -46.25 43.75 z" fill="#FFFFFF" stroke-width="0" stroke="black"/>
+      <!-- Ojo -->
+      <line x1="47.5" y1="77.5" x2="65" y2="80" stroke="#FFFFFF" stroke-width="5" />
+      <line x1="57.5" y1="85" x2="65" y2="80" stroke="#FFFFFF" stroke-width="5" />
+       <text x="187.5" y="137.5" fill="white" font-size="100" style="font-family:Paytone One" class="text">LookandFun</text> 
+</svg> 

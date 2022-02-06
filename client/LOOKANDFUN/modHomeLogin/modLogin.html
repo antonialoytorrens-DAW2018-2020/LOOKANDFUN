@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../stylesHome/homeEstilBasic.css">
+    <link rel="stylesheet" href="stylesModLogin/loginCompartits.css">
+</head>
+<script src="scriptsModLogin/loginMain.js"></script>
+
+<body>
+    <div id="contCore">
+        <fieldset>
+            <legend>Login</legend>
+            <form id="temporal">
+                <div class="form-group">
+                    <label for="usr">Usuari</label>
+                    <input type="user" class="form-control" id="inputTextUsuari"
+                        placeholder="Introdueix el teu nom d'usuari">
+                    <small id="usuariHelp" class="form-text text-muted">Aquest serà el teu nom que sortirà a la pàgina
+                        web.</small>
+                </div>
+                <div class="form-group">
+                    <label for="psw">Password</label>
+                    <input type="password" class="form-control" id="inputPasswordPassword" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Envia</button>
+            </form>
+        </fieldset>
+        <p>Usuaris Vàlids: usuari, organitzador, administrador. No es necessita contrasenya.</p>
+
+        <a class="btn btn-outline-secondary" href="modLoginRegistre/index.html">O REGISTRA'T</a>
+    </div>
+    <a href="../index.html">Torna a la Home</a>
+</body>
+
+</html>

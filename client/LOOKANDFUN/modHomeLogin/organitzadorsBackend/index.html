@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Portal Organitzadors</title>
+
+    <!-- bootstrap CSS -->
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../stylesModLogin/loginCompartits.css">
+    <link rel="stylesheet" href="app/assets/css/estil.css">
+
+</head>
+<body>
+<!-- NavBar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <!--<a class="navbar-brand" href="#"></a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+    </div>
+</nav>
+<!-- our app will be injected here -->
+<div id="app">
+    <div class='container'>
+        <div class='page-header'>
+            <h1 id='page-title'>Portal Organitzadors</h1>
+        </div>
+        <!-- this is where the contents will be shown. -->
+        <div id='page-content'>
+        </div>
+    </div>
+</div>
+</body>
+<!-- jQuery library -->
+<script src="app/assets/js/jquery.js"></script>
+<!-- bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- scripts Generics -->
+<script src="../scriptsModLogin/loginNavbar.js"></script> <!--Navbar-->
+<script src="../scriptsModLogin/loginDomCompartides.js"></script> <!--Funcions de DOM Compartides-->
+<script src="../../phpJSON/modLoginOrganitzadorsJSON.js"></script> <!--JSON generics-->
+<script src="../scriptsModLogin/loginValidacionsCompartides.js"></script> <!-- Validacions Compartides -->
+<script src="../../scriptsHome/mainCurrentPath.js"></script>
+<!-- scripts Especifics -->
+<script src="app/eventsCRUD/readAllEvents.js"></script>
+<script src="app/eventsCRUD/readOneEvents.js"></script>
+<script src="app/eventsCRUD/createEvents.js"></script>
+</html>

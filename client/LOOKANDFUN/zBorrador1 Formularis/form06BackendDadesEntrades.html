@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dades Entrades</title>
+</head>
+<body>
+<h1>Dades Entrades</h1>
+<form id="f06" action="" method="get">
+    <label for="tipusPreuPagament">Preu</label>
+        <input type="radio" name="tipusPreu" id="tipusPreuPagament" value="pagament">
+            <input type="text" name="preu" disabled>€
+        <input type="radio" name="tipusPreu" id="tipusPreuGratuit" value="gratuit">Gratuit<br>
+    <label for="numEntrades">Nº Entrades</label>
+        <input type="number" name="numEntrades" id="numEntrades"><br>
+        <input type="checkbox" name="modButaques" id="modButaques">Mode butaca<br>
+            <input type="number" name="filesButaques" id="filesButaques">Nº de files<br>
+            <input type="number" name="numButaquesPerFila" id="numButaquesPerFila">Nº de butaques per fila<br>
+    <label for="iniVenta">Data inici de Ventes</label>
+        <input type="date" name="iniVenta" id="iniVenta">
+    <label for="iniVenta">Data fi de Ventes</label>
+        <input type="date" name="fiVenta" id="fiVenta"><br>
+
+    <label for="idF">NIF/CIF: </label>
+        <input type="text" name="idF" id="idF"><br>
+    <label for="compteBanc">Compte Bancari</label>
+        <input type="text" name="compteBanc" id="compteBanc"><br>
+    <label for="targes">Tarjeta:</label>
+        <select name="targes" id="targes">
+            <option value="visa">VISA</option>
+            <option value="mCard">MasterCard</option>
+            <option value="maestro">Maestro</option>
+            <option value="amExp">American Express</option>
+        </select><br>
+    <button type="button" id="cancel" value="cancel">Cancel·lar</button>
+    <button type="submit" id="envia" value="envia" form="f06">Confirmar</button>
+</form>
+<a href="index.php">Torna a l'index</a>
+</body>
+</html>

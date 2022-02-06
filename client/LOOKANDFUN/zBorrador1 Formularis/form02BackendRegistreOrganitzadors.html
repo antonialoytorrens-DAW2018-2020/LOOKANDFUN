@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registre Organitzadors</title>
+    <script type="text/javascript">
+        function validarObligatori(valor) {
+            valor.toString().trim();
+            return typeof valor !== 'undefined' && valor !== ' ' && valor.length > 0;}
+
+        function validarSencer(numero) {return validarObligatori(numero) && !isNaN(numero) && (numero % 1 === 0);}
+
+        function validarNom(valor) {return validarObligatori(valor) && valor.length >= 4 && valor.length <= 50;}
+        //validaNom falta validar caracteres especiales y no mas de 6 espacios
+
+        function validarEmail(valor) {return /^\w+([\.-_]?\w+)*@\w*(\.\w{2,3,4})+$/.test(valor);}
+
+        function validarTelefon(telefon, tipus) {                       // tipus = 0 -> movil && tipus = 1 -> fixe
+            if (validarObligatori(telefon) && !isNaN(telefon)) {
+                telefon = telefon + "";
+                if (validarSencer(telefon) && (telefon.length === 9)) {
+                    if (((telefon.charAt(0) === "6") || (telefon.charAt(0) === "7"))
+                        && ((typeof tipus==='undefined')|| (tipus === 0))) {
+                        return true;
+                    }
+                    if (((telefon.charAt(0) === "8") || (telefon.charAt(0) === "9"))
+                        && ((typeof tipus==='undefined')|| (tipus === 1))) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function validarPassword(valor) {
+            var espacios = false;
+            var cont = 0;
+
+            while (!espacios && (cont < valor.length)) {
+                if (valor.charAt(cont) === " ")
+                    espacios = true;
+                cont++;
+            }
+
+            return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[<>_$@.!%*#?&/+])[A-Za-z\d<>_$@!%*#?&/+]{8,}$/.test(valor) && espacios === false;
+
+        }
+
+        function checkPassword(valor1,valor2) {
+            return validarPassword(valor1) === true && validarPassword(valor2) === true;
+        }
+
+        function isValidDate(){
+            var fecha = document.getElementById("dNaix").value;
+            alert(fecha);
+            var reg = /(2019|2020)[- -.](0[1-9]|1[012])[- -.](0[1-9]|[12][0-9]|3[01])\d\d/;
+            return (fecha.match(reg));
+        }
+
+        function onSubmitReg() {
+            return (document.getElementById('terms').checked && document.getElementById('notis').checked);
+        }
+
+        window.onload = function () {
+            document.getElementById("envia").onclick = function () {
+                let validarData = isValidDate(document.getElementById("dNaix").value);
+                alert("data naix "+validarData);
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Registre Organitzadors</h1>
+<p>Aquest, seria un Formulari de 3 passes. Òbviament els steps posteriors a aquest, només seran accessibles($_SESSION) seguint l'ordre.</p>
+<form id="f02" action="form02BackendRegistreOrganitzadors.html" method="get">  <!-- form03BackendTipusPla.html -->
+    <label for="nomEmp">Nom Empresa</label>
+        <input type="text" name="nomEmp" id="nomEmp">
+    <label for="nomRep">Nom Representant</label>
+        <input type="text" name="nomRep" id="nomRep"><br>
+    <label for="pw">Contrasenya: </label>
+        <input type="password" name="pw" id="pw"><br>
+    <label for="pwCheck">Confirma Contrasenya: </label>
+        <input type="password" name="pwCheck" id="pwCheck"><br>
+    <label for="dNaix">Data de Naixement (Representant)</label>
+        <input type="date" name="dNaix" id="dNaix"><br>
+    <label for="tlfn">Telefon de Contacte </label>
+        <input type="text" name="tlfn" id="tlfn"><br>
+    <label for="email">Correu Electrònic</label>
+        <input type="text" name="email" id="email"><br>
+    <input type="checkbox" name="terms" id="terms"> Accepta els termes i condicions del servei...<br>
+    <input type="checkbox" name="notis" id="notis"> Desitja rebre notificacions sobre... Desitja unir-se al nostre newsletter<br>
+    <button type="button" id="cancel" value="cancel">Cancel·lar</button>
+    <button type="submit" id="envia" value="envia" form="f02">Confirmar</button>
+</form>
+<a href="index.php">Torna a l'index</a>
+</body>
+</html>

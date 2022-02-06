@@ -1,0 +1,21 @@
+/*Genèrics*/
+#contCore {
+    width: 80%;
+    margin: 0 auto;
+}
+.amaga {
+    display: none;
+    overflow: hidden;
+}
+/*Navbar*/
+.enConstruccio {
+    cursor: not-allowed;
+}
+.navbar {
+    position: sticky;
+    top: 0;
+}
+
+.maxz-index {
+    z-index: 100;
+}

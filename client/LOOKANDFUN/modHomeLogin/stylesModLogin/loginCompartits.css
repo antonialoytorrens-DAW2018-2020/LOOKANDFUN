@@ -1,0 +1,32 @@
+/*Genèrics*/
+#contCore {
+    width: 80%;
+    margin: 0 auto;
+}
+.amaga {
+    display: none;
+    overflow: hidden;
+}
+.dreta {
+    float:right;
+}
+/*Fieldset*/
+fieldset {
+    border: 2px solid lightsteelblue;
+    border-radius: 4px;
+    padding:16px;
+}
+legend {
+    color: lightsteelblue;
+    border-bottom:none;
+    width: inherit;
+}
+/*Navbar*/
+.enConstruccio {
+    cursor: not-allowed;
+}
+/*
+.navbar {
+    position: sticky;
+    top: 0;
+}*/

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taules Mestres</title>
+</head>
+<body>
+<h1>Taules Mestres</h1>
+<form id="fTaulesMestres" method="get" action="">
+    <form id="removeTipusExistents" method="get" action="">
+    <table id="tipus">
+        <tr>
+            <th>Categories</th>
+        </tr>
+        <tr>
+            <td>Concerts <button type="submit" id="remove" value="Concerts">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Els resultats surten de la db, es generen per loop, juntament amb els values i submits corresponents</td>
+        </tr>
+    </table>
+    </form>
+    <form id="addTipusNoves" method="" action="">
+    <input type="text" name="addTipus" id="addTipus"><button type="button" id="addTipusBtn" placeholder="Event nou">+</button><br>
+    <table id="addedTipus">
+        <tr><td>Event nou<button type="button" id="removeTipusBtn">Remove</button></td></tr>
+        <tr><td>S'anirien afegint aquests camps per JS (event al +)</td></tr>
+    </table>
+    </form>
+
+    <button type="button" value="cancel">Cancel·la</button>
+    <button type="submit" value="desa">Desa</button>
+</form>
+<a href="index.php">Torna a l'index</a>
+</body>
+</html>

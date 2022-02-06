@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Identificació Registre</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../stylesHome/homeEstilBasic.css">
+    <link rel="stylesheet" href="../stylesModLogin/loginCompartits.css">
+    <script>
+    window.onload = function(){
+        document.getElementById("usuari").addEventListener("click", function(){
+            window.location.href = "Usuari/index.html";
+        });
+        document.getElementById("organitzador").addEventListener("click", function(){
+            window.location.href = "Organitzador/index.html";
+        });
+    }
+    </script>
+</head>
+<body>
+    <div id="contCore">
+        <fieldset>
+            <legend>Registre</legend>
+            <label for="usuari">Qui ets?</label>
+            <button class="btn btn-primary" type="button" id="usuari" value="usuari">Sóc un Usuari</button>
+            <button class="btn btn-primary" type="button" id="organitzador" value="organitzador">Sóc un Organitzador</button>
+        </fieldset>
+    </div>
+    <a href="../modLogin.html">Torna a l'index</a>
+</body>
+</html>
